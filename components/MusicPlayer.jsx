@@ -7,33 +7,47 @@ import { useState, useEffect, useRef } from "react";
 // Drop your .mp3 files in /public/music/ and update the src + metadata below
 // ─────────────────────────────────────────────────────────────────────────────
 const TRACKS = [
-    { src: "/music/space_cadet.mp3", title: "Space Cadet", artist: "The Technicolors" },
-    { src: "/music/feels_like_summer.mp3", title: "Feels like Summer", artist: "Childish Gambino" },
-    { src: "/music/help_herself.mp3", title: "Help Herself", artist: "bbno$" },
-    { src: "/music/me_and_your_mama.mp3", title: "Me and your Mama", artist: "Childish Gambino" },
-    { src: "/music/dracula.mp3", title: "Dracula", artist: "Tame Impala" },
+  { src: "/music/space_cadet.mp3", title: "Space Cadet", artist: "The Technicolors" },
+  { src: "/music/feels_like_summer.mp3", title: "Feels like Summer", artist: "Childish Gambino" },
+  { src: "/music/help_herself.mp3", title: "Help Herself", artist: "bbno$" },
+  { src: "/music/me_and_your_mama.mp3", title: "Me and your Mama", artist: "Childish Gambino" },
+  { src: "/music/dracula.mp3", title: "Dracula", artist: "Tame Impala" },
   { src: "/music/tailwhip.mp3", title: "Tailwhip", artist: "Men I Trust" },
 ];
 // ─────────────────────────────────────────────────────────────────────────────
 
+function getRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; // The maximum is inclusive and the minimum is inclusive
+}
+
 export default function MusicPlayer() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying, setIsPlaying]       = useState(false);
-  const [progress, setProgress]         = useState(0); // 0–1
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0); // 0–1
   const audioRef = useRef(null);
+  const hasInitialized = useRef(false);
 
   const track = TRACKS[currentIndex];
 
   // ── swap src whenever track changes ────────────────────────────────────────
   useEffect(() => {
+    if (hasInitialized.current) return;
+    hasInitialized.current = true;
+
+    const randomIndex = getRandom(0, TRACKS.length - 1);
+    setCurrentIndex(randomIndex);
+
     const audio = audioRef.current;
     if (!audio) return;
-    audio.src = track.src;
+    audio.src = TRACKS[randomIndex].src;
     audio.load();
     audio.volume = 0.1;
-    setProgress(0);
-    if (isPlaying) audio.play().catch(() => {});
-  }, [currentIndex]);
+
+    // Autoplay (browsers may block this without prior user interaction)
+    audio.play().then(() => setIsPlaying(true)).catch(() => { });
+  }, []);
 
   // ── audio event handlers ───────────────────────────────────────────────────
   const handleTimeUpdate = () => {
@@ -54,7 +68,7 @@ export default function MusicPlayer() {
       audio.pause();
       setIsPlaying(false);
     } else {
-      audio.play().catch(() => {});
+      audio.play().catch(() => { });
       setIsPlaying(true);
     }
   };
@@ -72,7 +86,7 @@ export default function MusicPlayer() {
   const handleSeek = (e) => {
     const audio = audioRef.current;
     if (!audio || !audio.duration) return;
-    const rect  = e.currentTarget.getBoundingClientRect();
+    const rect = e.currentTarget.getBoundingClientRect();
     const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
     audio.currentTime = ratio * audio.duration;
     setProgress(ratio);
@@ -86,6 +100,7 @@ export default function MusicPlayer() {
           font-family: 'Trispace', monospace;
           top: 0; left: 0; right: 0;
           z-index: 9999;
+          pointer-events: all;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -229,30 +244,30 @@ export default function MusicPlayer() {
 
 function MushroomPlaceholder() {
   return (
-    <img src="/mushroom.svg" alt="mushroom" width={36} height={36} />
+    <img src="/icons/mushroom.svg" alt="mushroom" width={36} height={36} />
   );
 }
 
 function PlayIcon() {
-   return (
-    <img src="/play.svg" alt="mushroom" width={36} height={36} />
+  return (
+    <img src="/icons/play.svg" alt="mushroom" width={36} height={36} />
   );
 }
 
 function PauseIcon() {
-   return (
-    <img src="/resume.svg" alt="mushroom" width={36} height={36} />
+  return (
+    <img src="/icons/resume.svg" alt="mushroom" width={36} height={36} />
   );
 }
 
 function RewindIcon() {
-   return (
-    <img src="/playback.svg" alt="mushroom" width={23} height={23} />
+  return (
+    <img src="/icons/playback.svg" alt="mushroom" width={23} height={23} />
   );
 }
 
 function FastForwardIcon() {
-   return (
-    <img src="/playnext.svg" alt="mushroom" width={23} height={23} />
+  return (
+    <img src="/icons/playnext.svg" alt="mushroom" width={23} height={23} />
   );
 }

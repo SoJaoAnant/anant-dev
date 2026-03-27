@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Trispace } from "next/font/google";
 import "./globals.css";
+import MusicPlayer from "@/components/MusicPlayer";
+
 
 const trispace = Trispace({
   subsets: ["latin"],
@@ -16,7 +18,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={trispace.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }

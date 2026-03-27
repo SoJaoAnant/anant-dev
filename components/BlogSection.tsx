@@ -10,13 +10,13 @@ export const BlogSection = () => {
         <Blog
             blog_name={'QR codes - A deep dive into the seemingly random black and white pixels'}
             read_time={"A 20 minute read"}
-            href={"/Blogs/QR codes"}
+            href={"/blogs/QR_code"}
         />
 
         <Blog
             blog_name={'An in-depth guide on how to spin a donut in your CMD shell'}
             read_time={"A 15 minute read"}
-            href={"/Blogs/DonutSpin"}
+            href={"/blogs/Donut_spin"}
         />
 
     </main>

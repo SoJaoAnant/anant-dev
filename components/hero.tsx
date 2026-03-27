@@ -1,10 +1,10 @@
 "use client";
 
 const NAME        = "Anant Kumar Sinha";
-const ROLES       = ["AI engineer", "NLP engineer", "Developer", "Guava Critique"];
+const ROLES       = ["AI engineer", "NLP engineer", "Developer", "Guava Kidnapper"];
 const BIO         = "Just a silly little techy guy who loves talking about algorithms, system architectures and games while learning, training and building everything I find intriguing. Constantly living between 4 Kaggle notebooks, 1 wiki article and multiple projects I wanna make :D";
 
-const PHOTO_SRC   = "photo.svg";
+const PHOTO_SRC   = "personal_info/photo.svg";
 
 // Social links — add href for each, or remove ones you don't need
 const SOCIALS = [
@@ -93,7 +93,7 @@ export default function Hero() {
         }
         .hero-social-btn:hover {
           color: #e8e8e8;
-          scale: 1.1;
+          transform: scale(1.3);
         }
         .hero-social-btn svg {
           width: 19px;
@@ -147,41 +147,41 @@ export default function Hero() {
 function Photo() {
   // REPLACE with your icon
   return (
-    <img src="/photo.svg" alt="mushroom" width={36} height={36} />
+    <img src="personal_info/photo.svg" alt="mushroom" width={36} height={36} />
   );
 }
 
 function MailIcon() {
   // REPLACE with your icon
   return (
-    <img src="/gmail.svg" alt="mushroom" width={29} height={29} />
+    <img src="icons/gmail.svg" alt="mushroom" width={29} height={29} />
   );
 }
 
 function XIcon() {
   // REPLACE with your icon
   return (
-    <img src="/twitter.svg" alt="mushroom" width={29} height={29} />
+    <img src="icons/twitter.svg" alt="mushroom" width={29} height={29} />
   );
 }
 
 function GithubIcon() {
   // REPLACE with your icon
   return (
-    <img src="/github.svg" alt="mushroom" width={29} height={29} />
+    <img src="icons/github.svg" alt="mushroom" width={29} height={29} />
   );
 }
 
 function LinkedinIcon() {
   // REPLACE with your icon
   return (
-    <img src="/linkedin.svg" alt="mushroom" width={29} height={29} />
+    <img src="icons/linkedin.svg" alt="mushroom" width={29} height={29} />
   );
 }
 
 function ItchIcon() {
   // REPLACE with your icon
   return (
-    <img src="/itch.svg" alt="mushroom" width={29} height={29} />
+    <img src="icons/itch.svg" alt="mushroom" width={29} height={29} />
   );
 }
