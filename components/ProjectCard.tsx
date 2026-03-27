@@ -83,7 +83,7 @@ export default function ProjectCard({
 
         <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
           <div 
-          className="absolute inset-0 bg-gradient-to-tr from-white/90 via-white/40 to-transparent 
+          className="absolute inset-0 bg-gradient-to-tr from-white/50 via-white/40 to-transparent 
        opacity-0 group-hover:opacity-100 transition-all duration-300" />
           <div className="absolute bottom-3 left-3 rounded-md border border-white/15 bg-black/40 px-2 py-1 text-xs tracking-wide text-white/90">
             View details

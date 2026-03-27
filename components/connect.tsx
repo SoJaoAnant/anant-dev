@@ -61,7 +61,7 @@ export const Connect = () => {
 
           </div>
 
-          <a href="anant_resume.pdf" target="_blank"
+          <a href="/personal_info/anant_resume.pdf" target="_blank"
             className="inline-flex items-center gap-2 
             opacity-70 hover:opacity-100 hover:scale-[1.1] transition">
             <img src="/icons/resume_document.svg" width={28} height={28} />
