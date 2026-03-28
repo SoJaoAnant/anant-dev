@@ -2,7 +2,7 @@
 
 const NAME        = "Anant Kumar Sinha";
 const ROLES       = ["AI engineer", "NLP engineer", "Developer", "Guava Kidnapper"];
-const BIO         = "Just a silly little techy guy who loves talking about algorithms, system architectures and games while learning, training and building everything I find intriguing. Constantly living between 4 Kaggle notebooks, 1 wiki article and multiple projects I wanna make :D";
+const BIO         = "Just a silly little techy guy who loves talking about algorithms, system architectures and games while learning, training and building everything I find intriguing. Constantly voyaging between 4 Kaggle notebooks, multiple projects I wanna make and strange eons of thoughts :D";
 
 const PHOTO_SRC   = "personal_info/photo.svg";
 
@@ -115,7 +115,7 @@ export default function Hero() {
       <section className="hero-root">
 
         {/* ── Photo ── */}
-        <img src={PHOTO_SRC} alt="photo" className="hero-photo" />
+        <img src={PHOTO_SRC} alt="photo" className="hero-photo" loading="eager" fetchPriority="high"/>
 
         {/* ── Name ── */}
         <h1 className="hero-name">{NAME}</h1>
