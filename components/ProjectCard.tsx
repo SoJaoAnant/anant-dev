@@ -66,7 +66,7 @@ export default function ProjectCard({
           "--c1": color1,
           "--c2": color2,
         } as React.CSSProperties}
-        className="flex justify-center items-center relative block w-[320px] shrink-0 overflow-hidden rounded-xl 
+        className="flex w-[320px] md:w-full justify-center items-center relative block shrink-0 overflow-hidden rounded-xl 
         border border-gray-900
         bg-[linear-gradient(to_bottom_right,var(--c1),var(--c2))] 
         shadow-[0_0_0_1px_rgba(168,85,247,0.15),0_10px_40px_rgba(0,0,0,0.35)]"
