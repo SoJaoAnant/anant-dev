@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react";
 import Image from "next/image";
 import GridBackground3 from "@/components/GridBackground3";
 import MusicPlayer from "@/components/MusicPlayer";
@@ -10,22 +13,13 @@ import { BlogSection } from "@/components/BlogSection";
 import { ProjectSection } from "@/components/ProjectSection";
 
 export default function Home() {
-
-  const PROJECT_1 = {
-    photoPng: "/ContextVault.png",
-    title: "ContextVault",
-    subtitle: "A RAG based AI document assistant",
-    stack: ["Python", "JavaScript", "TypeScript", "LangChain", "FastAPI", "Next.js", "Tailwind", "ChromaDB", "Gemini (Embedding-001)"],
-    description:
-      "The system processes PDFs, DOCX, and TXT files by chunking and embedding their content into a vector database, enabling retrieval and querying. The RAG pipeline retrieves relevant chunks for a query before generating answers. The architecture integrates scalable API endpoints, embedding pipelines, and real-time document preview to deliver an efficient AI assisted document exploration experience.",
-    href: "/projects/contextvault",
-  };
+  const [isLight, setIsLight] = useState(false);
 
   return (
     <>
     <GridBackground3>
       <MusicPlayer/>
-      <Hero />
+      <Hero/>
 
       <Break />
       <div className="flex pl-10 sm:pl-18 md:pl-25">
@@ -62,7 +56,6 @@ export default function Home() {
       <BlogSection />
 
       <Break />
-
       <Connect />
       <Footer />
 

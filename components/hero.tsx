@@ -14,6 +14,11 @@ const SOCIALS = [
   { label: "Itch.io",  href: "https://sojaoanant.itch.io/",                             Icon: ItchIcon     },
 ];
 
+interface HeroProps {
+  isLight: boolean;
+  onToggleTheme: () => void;
+}
+
 export default function Hero() {
   return (
     <section className="flex flex-col items-center justify-start text-center mt-10 gap-0">

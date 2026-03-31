@@ -5,136 +5,74 @@ import SubStack from './substack';
 export const TechStack = () => {
 
     const machine_learning = [
-        "Python",
-        "NumPy",
-        "Pandas",
-        "Scikit-learn",
-        "Linear Regression",
-        "Logistic Regression",
-        "Random Forest",
-        "Gradient Boosting",
-        "Model Evaluation",
-        "Feature Engineering"
-        ];
-        
+        "Python", "NumPy", "Pandas", "Scikit-learn", "Matplotlib"
+    ];
+
     const deep_learning = [
-        "PyTorch",
-        "Torchvision",
-        "Neural Networks",
-        "CNNs",
-        "RNNs",
-        "LSTMs",
-        "GRUs",
-        "Transformers",
-        "Training Pipelines",
-        "Model Optimization"
-        ];
+        "PyTorch", "Torchvision", "CNNs", "RNNs", "Transformers"
+    ];
 
     const natural_language_processing = [
-        "NLTK",
-        "SpaCy",
-        "Tokenization",
-        "Text Preprocessing",
-        "Sequence to Sequence Modeling",
-        "Text and Sentence Embedding",
-        "Attention Mechanisms",
-        "Text Classification",
-        "Sentiment Analysis",
-        "Machine Translation"
-        ];
+        "NLTK", "SpaCy", "Hugging Face", "Seq2Seq", "Attention Mechanisms"
+    ];
 
     const generative_ai = [
-        "LLMs",
-        "Prompt Engineering",
-        "LangChain",
-        "Hugging Face Transformers",
-        "Ollama",
-        "Model Orchestration",
-        "Text Generation",
-        "Diffusion Models",
-        "GANs",
-        "Autoencoders"
-        ];
+        "LLMs", "LangChain", "Ollama", "Diffusion Models", "GANs"
+    ];
 
     const rag_systems = [
-        "Retrieval-Augmented Generation",
-        "LangChain",
-        "ChromaDB",
-        "FAISS",
-        "Embedding Models",
-        "Vector Databases",
-        "Semantic Search",
-        "Document Chunking"
-        ];
-  
+        "LangChain", "ChromaDB", "FAISS", "Vector Databases", "Semantic Search"
+    ];
+
     const reinforcement_learning = [
-        "Markov Decision Processes (MDPs)",
-        "Q-Learning",
-        "Deep Q Networks (DQN)",
-        "Policy Gradients",
-        "Actor-Critic Methods",
-        "Exploration vs Exploitation",
-        "Reward Optimization",
-        "Environment Design",
-        "Gymnasium (OpenAI Gym)",
-        "RL Training Loops"
-        ];
+        "Q-Learning", "DQN", "Policy Gradients", "Actor-Critic", "Gymnasium"
+    ];
 
     const backend_and_production = [
-        "FastAPI",
-        "REST APIs",
-        "N8N",
-        "Model Deployment",
-        "API Design",
-        "System Design",
-        "Scalable Architectures"
-        ];
-    
+        "FastAPI", "REST APIs", "N8N", "Docker", "System Design"
+    ];
+
     const programming_languages = [
-        "Python",
-        "C",
-        "C++",
-        "C#",
-        "Java"
-        ];
+        "Python", "C", "C++", "C#", "Java"
+    ];
+    
+    return (
+        <main className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 px-10 md:px-15 lg:px-25 pb-10 mt-10">
 
-  return (
-    <main className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 px-10 md:px-15 lg:px-25 pb-10 mt-10">
+            <SubStack
+                stack_name={'Machine Learning'}
+                stack={machine_learning}
+            />
 
-        <SubStack
-            stack_name={'Machine Learning'}
-            stack={machine_learning}
-        />
+            <SubStack
+                stack_name={'Deep Learning'}
+                stack={deep_learning}
+            />
+            <SubStack
+                stack_name={'NLP - Natural Language Processing'}
+                stack={natural_language_processing}
+            />
+            <SubStack
+                stack_name={'Generative AI'}
+                stack={generative_ai}
+            />
+            <SubStack
+                stack_name={'RAG Systems'}
+                stack={rag_systems}
+            />
+            <SubStack
+                stack_name={'Reinforcement Learning'}
+                stack={reinforcement_learning}
+            />
+            <SubStack
+                stack_name={'Backend, Development and Automation'}
+                stack={backend_and_production}
+            />
+            <SubStack
+                stack_name={'Programming Languages'}
+                stack={programming_languages}
+            />
 
-        <SubStack
-            stack_name={'Deep Learning'}
-            stack={deep_learning}
-        />
-        <SubStack
-            stack_name={'NLP - Natural Language Processing'}
-            stack={natural_language_processing}
-        />
-        <SubStack
-            stack_name={'Generative AI'}
-            stack={generative_ai}
-        />
-        <SubStack
-            stack_name={'RAG Systems'}
-            stack={rag_systems}
-        />
-        <SubStack
-            stack_name={'Reinforcement Learning'}
-            stack={reinforcement_learning}
-        />
-        <SubStack
-            stack_name={'Backend, Development and Automation'}
-            stack={backend_and_production}
-        />
-        <SubStack
-            stack_name={'Programming Languages'}
-            stack={programming_languages}
-        />
-
-    </main>
-  );
+        </main>
+    );
 };
