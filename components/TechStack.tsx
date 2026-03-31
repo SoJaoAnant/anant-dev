@@ -4,75 +4,46 @@ import SubStack from './substack';
 
 export const TechStack = () => {
 
-    const machine_learning = [
-        "Python", "NumPy", "Pandas", "Scikit-learn", "Matplotlib"
-    ];
+    const STACKS = [
+        {
+            name: "Deep Learning",
+            stack: ["Transformers", "Vision Models", "Image Generation", "Training Pipelines", "Model Evaluation", "Feature Engineering"]
+        },
+        {
+            name: "Natural Language Processing",
+            stack: ["Seq2Seq", "Embedding", "Self-Attention", "Sentiment Analysis", "Translation Models", "Language Models"]
+        },
+        {
+            name: "Reinforcement Learning",
+            stack: ["DQN", "Environment Design", "Reward-Punishment Training", "Policy Gradients"]
+        },
+        {
+            name: "Machine Learning",
+            stack: ["Scikit-learn", "Pandas", "Numpy"]
+        },
+        {
+            name: "Tools",
+            stack: ["FastAPI", "N8N Automation", "Model Deployement/Self Hosting", "NGrok", "Github"]
+        },
+        {
+            name: "Frontend",
+            stack: ["Next.JS", "TypeScript", "A little bit of Backend :p"]
+        },
+        {
+            name: "Programming Languages",
+            stack: ["Python", "C++", "C", "C#", "Java", "TypeScript", "JavaScript"]
+        },
+    ]
 
-    const deep_learning = [
-        "PyTorch", "Torchvision", "CNNs", "RNNs", "Transformers"
-    ];
-
-    const natural_language_processing = [
-        "NLTK", "SpaCy", "Hugging Face", "Seq2Seq", "Attention Mechanisms"
-    ];
-
-    const generative_ai = [
-        "LLMs", "LangChain", "Ollama", "Diffusion Models", "GANs"
-    ];
-
-    const rag_systems = [
-        "LangChain", "ChromaDB", "FAISS", "Vector Databases", "Semantic Search"
-    ];
-
-    const reinforcement_learning = [
-        "Q-Learning", "DQN", "Policy Gradients", "Actor-Critic", "Gymnasium"
-    ];
-
-    const backend_and_production = [
-        "FastAPI", "REST APIs", "N8N", "Docker", "System Design"
-    ];
-
-    const programming_languages = [
-        "Python", "C", "C++", "C#", "Java"
-    ];
-    
     return (
         <main className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 px-10 md:px-15 lg:px-25 pb-10 mt-10">
-
-            <SubStack
-                stack_name={'Machine Learning'}
-                stack={machine_learning}
-            />
-
-            <SubStack
-                stack_name={'Deep Learning'}
-                stack={deep_learning}
-            />
-            <SubStack
-                stack_name={'NLP - Natural Language Processing'}
-                stack={natural_language_processing}
-            />
-            <SubStack
-                stack_name={'Generative AI'}
-                stack={generative_ai}
-            />
-            <SubStack
-                stack_name={'RAG Systems'}
-                stack={rag_systems}
-            />
-            <SubStack
-                stack_name={'Reinforcement Learning'}
-                stack={reinforcement_learning}
-            />
-            <SubStack
-                stack_name={'Backend, Development and Automation'}
-                stack={backend_and_production}
-            />
-            <SubStack
-                stack_name={'Programming Languages'}
-                stack={programming_languages}
-            />
-
+            {STACKS.map((project, index) => (
+                <SubStack
+                    key={index}
+                    stack_name={project.name}
+                    stack={project.stack}
+                />
+            ))}
         </main>
     );
 };
