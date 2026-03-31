@@ -1,187 +1,75 @@
 "use client";
 
-const NAME        = "Anant Kumar Sinha";
-const ROLES       = ["AI engineer", "NLP engineer", "Developer", "Guava Kidnapper"];
-const BIO         = "Just a silly little techy guy who loves talking about algorithms, system architectures and games while learning, training and building everything I find intriguing. Constantly voyaging between 4 Kaggle notebooks, multiple projects I wanna make and strange eons of thoughts :D";
+import Image from "next/image";
 
-const PHOTO_SRC   = "personal_info/photo.svg";
+const NAME  = "Anant Kumar Sinha";
+const ROLES = ["AI engineer", "NLP engineer", "Developer", "Guava Kidnapper"];
+const BIO   = "Just a silly little techy guy who loves talking about algorithms, system architectures and games while learning, training and building everything I find intriguing. Constantly voyaging between 4 Kaggle notebooks, multiple projects I wanna make and strange eons of thoughts :D";
 
-// Social links — add href for each, or remove ones you don't need
 const SOCIALS = [
-  { label: "Email", href: "mailto:anantsinha007@email.com", Icon: MailIcon },
-  { label: "X", href: "https://x.com/SoJaoAnant", Icon: XIcon },
-  { label: "GitHub", href: "https://github.com/SoJaoAnant",Icon: GithubIcon },
+  { label: "Email",    href: "mailto:anantsinha007@email.com",                          Icon: MailIcon     },
+  { label: "X",        href: "https://x.com/SoJaoAnant",                               Icon: XIcon        },
+  { label: "GitHub",   href: "https://github.com/SoJaoAnant",                          Icon: GithubIcon   },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/anant-kumar-sinha-3742971ab/", Icon: LinkedinIcon },
-  { label: "Itch.io",  href: "https://sojaoanant.itch.io/", Icon: ItchIcon },
+  { label: "Itch.io",  href: "https://sojaoanant.itch.io/",                             Icon: ItchIcon     },
 ];
-// ─────────────────────────────────────────────────────────────────────────────
 
 export default function Hero() {
   return (
-    <>
-      <style>{`
-        .hero-root {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-start;
-          min-height: auto;
-          margin-top: 40px;
-          gap: 0;
-          text-align: center;
-        }
+    <section className="flex flex-col items-center justify-start text-center mt-10 gap-0">
 
-        .hero-photo {
-            width: 250px;
-            height: 250px;
-            margin-bottom: 10px;
+      {/* ── Photo ── */}
+      <Image
+        src="/personal_info/photo.svg"
+        alt="Anant's photo"
+        width={250}
+        height={250}
+        priority                          // loads first, no lazy loading
+        className="mb-2.5 transition-transform duration-200 hover:scale-105 cursor-pointer"
+      />
 
-            transition: transform 0.2s ease;
-            pointer-events: auto;
-            }
+      {/* ── Name ── */}
+      <h1 className="text-[clamp(28px,5vw,52px)] font-bold text-[#e8e8e8] tracking-[0.04em] leading-[1.1] mt-2">
+        {NAME}
+      </h1>
 
-            .hero-photo:hover {
-            transform: scale(1.05);
-        }
+      {/* ── Roles ── */}
+      <p className="text-[clamp(11px,1.4vw,14px)] font-light text-white/45 tracking-[0.06em] mb-2.5 flex flex-wrap justify-center gap-0">
+        {ROLES.map((r, i) => (
+          <span key={r}>
+            {i !== 0 && <span className="text-white/20 mx-1">|</span>}
+            {r}
+          </span>
+        ))}
+      </p>
 
+      {/* ── Socials ── */}
+      <div className="flex items-center justify-center gap-4 mb-2.5">
+        {SOCIALS.map(({ label, href, Icon }) => (
+          <a
+            key={label}
+            href={href}
+            aria-label={label}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-1.5 rounded-md flex items-center justify-center no-underline transition-transform duration-150 hover:scale-125 pointer-events-auto"
+          >
+            <Icon />
+          </a>
+        ))}
+      </div>
 
-        /* ── Name ── */
-        .hero-name {
-          font-family: 'Trispace', monospace;
-          font-size: clamp(28px, 5vw, 52px);
-          font-weight: 700;
-          color: #e8e8e8;
-          letter-spacing: 0.04em;
-          line-height: 1.1;
-          margin-top: 8px;
-        }
+      {/* ── Bio ── */}
+      <p className="text-[clamp(12px,1.5vw,18px)] font-light text-white/60 leading-[1.8] max-w-[790px] tracking-[0.03em] px-4">
+        {BIO}
+      </p>
 
-        /* ── Roles ── */
-        .hero-roles {
-          font-family: 'Trispace', monospace;
-          font-size: clamp(11px, 1.4vw, 14px);
-          font-weight: 300;
-          color: rgba(255,255,255,0.45);
-          letter-spacing: 0.06em;
-          margin-bottom: 10px;
-        }
-        .hero-roles span + span::before {
-          content: ' | ';
-          color: rgba(255,255,255,0.2);
-        }
-
-        /* ── Socials ── */
-        .hero-socials {
-          display: flex;
-          gap: 16px;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 10px;
-        }
-        .hero-social-btn {
-          background: none;
-          border: none;
-          padding: 6px;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 6px;
-          transition: color 0.15s, transform 0.12s;
-          text-decoration: none;
-          pointer-events: auto;
-        }
-        .hero-social-btn:hover {
-          color: #e8e8e8;
-          transform: scale(1.3);
-        }
-        .hero-social-btn svg {
-          width: 19px;
-          height: 19px;
-        }
-
-        /* ── Bio ── */
-        .hero-bio {
-          font-family: 'Trispace', monospace;
-          font-size: clamp(12px, 1.5vw, 18px);
-          font-weight: 300;
-          color: rgba(255,255,255,0.6);
-          line-height: 1.8;
-          max-width: 790px;
-          letter-spacing: 0.03em;
-        }
-      `}</style>
-
-      <section className="hero-root">
-
-        {/* ── Photo ── */}
-        <img src={PHOTO_SRC} alt="photo" className="hero-photo" loading="eager" fetchPriority="high"/>
-
-        {/* ── Name ── */}
-        <h1 className="hero-name">{NAME}</h1>
-
-        {/* ── Roles ── */}
-        <p className="hero-roles">
-          {ROLES.map((r) => <span key={r}>{r}</span>)}
-        </p>
-
-        {/* ── Social icons ── */}
-        <div className="hero-socials">
-          {SOCIALS.map(({ label, href, Icon }) => (
-            <a key={label} href={href} aria-label={label} className="hero-social-btn" target="_blank" rel="noopener noreferrer">
-              <Icon />
-            </a>
-          ))}
-        </div>
-
-        {/* ── Bio ── */}
-        <p className="hero-bio">{BIO}</p>
-
-      </section>
-    </>
+    </section>
   );
 }
 
-// ─── Social icon placeholders — replace SVG paths with your preferred icon set ──
-
-function Photo() {
-  // REPLACE with your icon
-  return (
-    <img src="personal_info/photo.svg" alt="mushroom" width={36} height={36} />
-  );
-}
-
-function MailIcon() {
-  // REPLACE with your icon
-  return (
-    <img src="icons/gmail.svg" alt="mushroom" width={29} height={29} />
-  );
-}
-
-function XIcon() {
-  // REPLACE with your icon
-  return (
-    <img src="icons/twitter.svg" alt="mushroom" width={29} height={29} />
-  );
-}
-
-function GithubIcon() {
-  // REPLACE with your icon
-  return (
-    <img src="icons/github.svg" alt="mushroom" width={29} height={29} />
-  );
-}
-
-function LinkedinIcon() {
-  // REPLACE with your icon
-  return (
-    <img src="icons/linkedin.svg" alt="mushroom" width={29} height={29} />
-  );
-}
-
-function ItchIcon() {
-  // REPLACE with your icon
-  return (
-    <img src="icons/itch.svg" alt="mushroom" width={29} height={29} />
-  );
-}
+function MailIcon()     { return <img src="/icons/gmail.svg"    alt="Email"    width={29} height={29} />; }
+function XIcon()        { return <img src="/icons/twitter.svg"  alt="X"        width={29} height={29} />; }
+function GithubIcon()   { return <img src="/icons/github.svg"   alt="GitHub"   width={29} height={29} />; }
+function LinkedinIcon() { return <img src="/icons/linkedin.svg" alt="LinkedIn" width={29} height={29} />; }
+function ItchIcon()     { return <img src="/icons/itch.svg"     alt="Itch.io"  width={29} height={29} />; }

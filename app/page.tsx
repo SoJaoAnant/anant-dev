@@ -28,16 +28,16 @@ export default function Home() {
       <Hero />
 
       <Break />
-      <div className="flex pl-25">
-        <h1 className="text-[clamp(20px,3vw,58px)] font-bold text-White tracking-[0.04em] leading-[1.1] ">Projects</h1>
+      <div className="flex pl-10 sm:pl-18 md:pl-25">
+        <h1 className="text-[clamp(30px,3vw,58px)] font-bold text-White tracking-[0.04em] leading-[1.1] ">Projects</h1>
       </div>
       <Break />
 
       <ProjectSection />
 
       <Break />
-      <div className="flex items-baseline gap-3 pl-25">
-        <h1 className="text-[clamp(20px,3vw,58px)] font-bold text-white tracking-[0.04em] leading-[1.1]">
+      <div className="flex items-baseline gap-3 pl-10 sm:pl-18 md:pl-25 flex-col sm:flex-row">
+        <h1 className="text-[clamp(30px,3vw,58px)] font-bold text-white tracking-[0.04em] leading-[1.1]">
           SkillSet
         </h1>
         <p className="text text-white/60 tracking-wide">
@@ -49,8 +49,8 @@ export default function Home() {
       <TechStack />
 
       <Break />
-      <div className="flex items-baseline gap-3 pl-25">
-        <h1 className="text-[clamp(20px,3vw,58px)] font-bold text-white tracking-[0.04em] leading-[1.1]">
+      <div className="flex items-baseline gap-3 pl-10 sm:pl-18 md:pl-25 flex-col sm:flex-row">
+        <h1 className="text-[clamp(30px,3vw,58px)] font-bold text-white tracking-[0.04em] leading-[1.1]">
           Technical Blogs
         </h1>
         <p className="text text-white/60 tracking-wide">

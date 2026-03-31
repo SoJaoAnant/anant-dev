@@ -221,7 +221,7 @@ export default function GridBackground({ children }) {
         .grid-tile {
           width: ${TILE_SIZE}px;
           height: ${TILE_SIZE}px;
-          border: 1px solid rgba(255, 255, 255, 0.01);
+          border: 1px solid rgba(255, 255, 255, 0.02);
           background: rgba(9, 130, 246, calc(var(--glow-opacity) * 0.5));
           box-shadow: inset 0 0 2px 1px rgba(96, 165, 250, calc(var(--glow-opacity) * 0.5)), 0 0 8px rgba(96, 165, 250, calc(var(--glow-opacity) * 0.6));
           pointer-events: none;
