@@ -8,8 +8,6 @@ import { Connect } from "@/components/connect";
 import { TechStack } from "@/components/TechStack";
 import { BlogSection } from "@/components/BlogSection";
 import { ProjectSection } from "@/components/ProjectSection";
-import {StrictMode} from 'react';
-
 
 export default function Home() {
 

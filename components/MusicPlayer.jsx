@@ -2,10 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// 🎵 EDIT YOUR TRACKS HERE
-// Drop your .mp3 files in /public/music/ and update the src + metadata below
-// ─────────────────────────────────────────────────────────────────────────────
 const TRACKS = [
   { src: "/music/space_cadet.mp3", title: "Space Cadet", artist: "The Technicolors" },
   { src: "/music/feels_like_summer.mp3", title: "Feels like Summer", artist: "Childish Gambino" },
@@ -14,24 +10,22 @@ const TRACKS = [
   { src: "/music/dracula.mp3", title: "Dracula", artist: "Tame Impala" },
   { src: "/music/tailwhip.mp3", title: "Tailwhip", artist: "Men I Trust" },
 ];
-// ─────────────────────────────────────────────────────────────────────────────
 
 function getRandom(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; // The maximum is inclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 export default function MusicPlayer() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0); // 0–1
+  const [progress, setProgress] = useState(0);
   const audioRef = useRef(null);
   const hasInitialized = useRef(false);
 
   const track = TRACKS[currentIndex];
 
-  // ── swap src whenever track changes ────────────────────────────────────────
   useEffect(() => {
     if (hasInitialized.current) return;
     hasInitialized.current = true;
@@ -45,11 +39,9 @@ export default function MusicPlayer() {
     audio.load();
     audio.volume = 0.1;
 
-    // Autoplay (browsers may block this without prior user interaction)
-    audio.play().then(() => setIsPlaying(true)).catch(() => { });
+    audio.play().then(() => setIsPlaying(true)).catch(() => {});
   }, []);
 
-  // ── audio event handlers ───────────────────────────────────────────────────
   const handleTimeUpdate = () => {
     const audio = audioRef.current;
     if (!audio || !audio.duration) return;
@@ -60,7 +52,6 @@ export default function MusicPlayer() {
     setCurrentIndex((i) => (i + 1) % TRACKS.length);
   };
 
-  // ── controls ───────────────────────────────────────────────────────────────
   const handlePlayPause = () => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -68,7 +59,7 @@ export default function MusicPlayer() {
       audio.pause();
       setIsPlaying(false);
     } else {
-      audio.play().catch(() => { });
+      audio.play().catch(() => {});
       setIsPlaying(true);
     }
   };
@@ -94,135 +85,55 @@ export default function MusicPlayer() {
 
   return (
     <>
-      <style>{`
+      <div className="z-[9999] select-none pointer-events-auto flex items-center justify-center gap-3 sm:gap-5 px-4 sm:px-7 pt-3 sm:pt-4 pb-0">
 
-        .mp-root {
-          font-family: 'Trispace', monospace;
-          top: 0; left: 0; right: 0;
-          z-index: 9999;
-          pointer-events: all;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 20px;
-          padding: 14px 28px;
-          padding-bottom: 0;
-          user-select: none;
-        }
-
-        .mp-icon {
-          width: 44px;
-          height: 44px;
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          opacity: 0.85;
-        }
-
-        .mp-center {
-          flex: 0 0 auto;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 8px;
-          min-width: 0;
-        }
-
-        .mp-title {
-          font-size: 15px;
-          font-weight: 400;
-          letter-spacing: 0.08em;
-          color: #e8e8e8;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          max-width: 100%;
-        }
-
-        .mp-bar-wrap {
-          width: 100%;
-          max-width: 420px;
-        }
-
-        .mp-bar-track {
-          width: 100%;
-          height: 5px;
-          background: rgba(255,255,255,0.15);
-          border-radius: 3px;
-          cursor: pointer;
-          position: relative;
-        }
-
-        .mp-bar-fill {
-          height: 100%;
-          border-radius: 3px;
-          background: #e8e8e8;
-          pointer-events: none;
-        }
-
-        .mp-controls {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-          margin-top: 2px;
-        }
-
-        .mp-btn {
-          background: none;
-          border: none;
-          padding: 0;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          transition: color 0.15s, transform 0.1s;
-        }
-        .mp-btn:hover  { color: #fff; transform: scale(1.15); }
-        .mp-btn:active { transform: scale(0.95); }
-
-        .mp-btn-play {
-          width: 23px;
-          height: 23px;
-          border-radius: 50%;
-          color: #fff;
-          justify-content: center;
-        }
-        .mp-btn-play:hover { transform: scale(1.1); }
-      `}</style>
-
-      <div className="mp-root">
-
-        {/* ── LEFT ICON — replace with your mushroom image ── */}
-        <div className="mp-icon">
+        {/* left mushroom */}
+        <div className="w-7 h-7 sm:w-11 sm:h-11 shrink-0 flex items-center justify-center opacity-85">
           <MushroomPlaceholder />
         </div>
 
-        <div className="mp-center">
-          <span className="mp-title">
+        {/* center */}
+        <div className="flex flex-col items-center gap-2 min-w-0">
+
+          {/* track title */}
+          <span className="text-[11px] sm:text-[15px] font-normal tracking-widest text-white/90 whitespace-nowrap overflow-hidden text-ellipsis max-w-[180px] sm:max-w-[420px]">
             {track.artist} — {track.title}
           </span>
 
-          <div className="mp-bar-wrap">
-            <div className="mp-bar-track" onClick={handleSeek}>
-              <div className="mp-bar-fill" style={{ width: `${progress * 100}%` }} />
+          {/* progress bar */}
+          <div className="w-[180px] sm:w-[420px]">
+            <div
+              className="w-full h-[5px] bg-white/15 rounded-full cursor-pointer"
+              onClick={handleSeek}
+            >
+              <div
+                className="h-full rounded-full bg-white/90 pointer-events-none"
+                style={{ width: `${progress * 100}%` }}
+              />
             </div>
           </div>
 
-          <div className="mp-controls">
-            <button className="mp-btn" onClick={handlePrev} aria-label="Previous">
+          {/* controls */}
+          <div className="flex items-center gap-4 sm:gap-5 mt-0.5">
+            <button onClick={handlePrev} aria-label="Previous"
+              className="bg-transparent border-none p-0 cursor-pointer flex items-center hover:scale-110 active:scale-95 transition-transform duration-100">
               <RewindIcon />
             </button>
-            <button className="mp-btn mp-btn-play" onClick={handlePlayPause} aria-label={isPlaying ? "Pause" : "Play"}>
+
+            <button onClick={handlePlayPause} aria-label={isPlaying ? "Pause" : "Play"}
+              className="bg-transparent border-none p-0 cursor-pointer flex items-center justify-center w-6 h-6 text-white hover:scale-110 active:scale-95 transition-transform duration-100">
               {isPlaying ? <PauseIcon /> : <PlayIcon />}
             </button>
-            <button className="mp-btn" onClick={handleNext} aria-label="Next">
+
+            <button onClick={handleNext} aria-label="Next"
+              className="bg-transparent border-none p-0 cursor-pointer flex items-center hover:scale-110 active:scale-95 transition-transform duration-100">
               <FastForwardIcon />
             </button>
           </div>
         </div>
 
-        {/* ── RIGHT ICON — replace with your mushroom image ── */}
-        <div className="mp-icon">
+        {/* right mushroom */}
+        <div className="w-7 h-7 sm:w-11 sm:h-11 shrink-0 flex items-center justify-center opacity-85">
           <MushroomPlaceholder />
         </div>
       </div>
@@ -239,35 +150,18 @@ export default function MusicPlayer() {
   );
 }
 
-// ─── Placeholder icons ────────────────────────────────────────────────────────
-// REPLACE each with: <img src="/icons/your-icon.png" alt="" width={36} height={36} />
-
 function MushroomPlaceholder() {
-  return (
-    <img src="/icons/mushroom.svg" alt="mushroom" width={36} height={36} />
-  );
+  return <img src="/icons/mushroom.svg" alt="mushroom" width={36} height={36} />;
 }
-
 function PlayIcon() {
-  return (
-    <img src="/icons/play.svg" alt="mushroom" width={36} height={36} />
-  );
+  return <img src="/icons/play.svg" alt="play" width={36} height={36} />;
 }
-
 function PauseIcon() {
-  return (
-    <img src="/icons/resume.svg" alt="mushroom" width={36} height={36} />
-  );
+  return <img src="/icons/resume.svg" alt="pause" width={36} height={36} />;
 }
-
 function RewindIcon() {
-  return (
-    <img src="/icons/playback.svg" alt="mushroom" width={23} height={23} />
-  );
+  return <img src="/icons/playback.svg" alt="previous" width={23} height={23} />;
 }
-
 function FastForwardIcon() {
-  return (
-    <img src="/icons/playnext.svg" alt="mushroom" width={23} height={23} />
-  );
+  return <img src="/icons/playnext.svg" alt="next" width={23} height={23} />;
 }

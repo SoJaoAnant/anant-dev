@@ -93,7 +93,7 @@ export const ProjectSection = () => {
     ];
 
     return (
-        <main className="flex items-center w-full flex-col gap-8 mt-12 pb-24">
+        <main className="flex items-center w-full flex-col gap-8 mt-12 pb-24 px-10">
             <div className="flex flex-col gap-6">
                 {PROJECTS.map((project, index) => (
                     <ProjectCard
@@ -112,99 +112,6 @@ export const ProjectSection = () => {
                     />
                 ))}
             </div>
-            {/* 
-            <ProjectCard
-                imageSrc={PROJECT_1.photoPng}
-                imageAlt={PROJECT_1.title}
-                title={PROJECT_1.title}
-                subtitle={PROJECT_1.subtitle}
-                stack={PROJECT_1.stack}
-                description={PROJECT_1.description}
-                href={PROJECT_1.href}
-                color1={PROJECT_1.color1}
-                color2={PROJECT_1.color2}
-                githubHref={PROJECT_1.githubHref}
-                deployedHref={PROJECT_1.deployedHref}
-            />
-
-            <ProjectCard
-                imageSrc={PROJECT_2.photoPng}
-                imageAlt={PROJECT_2.title}
-                title={PROJECT_2.title}
-                subtitle={PROJECT_2.subtitle}
-                stack={PROJECT_2.stack}
-                description={PROJECT_2.description}
-                href={PROJECT_2.href}
-                color1={PROJECT_2.color1}
-                color2={PROJECT_2.color2}
-                githubHref={PROJECT_2.githubHref}
-            />
-
-            <ProjectCard
-                imageSrc={PROJECT_3.photoPng}
-                imageAlt={PROJECT_3.title}
-                title={PROJECT_3.title}
-                subtitle={PROJECT_3.subtitle}
-                stack={PROJECT_3.stack}
-                description={PROJECT_3.description}
-                href={PROJECT_3.href}
-                color1={PROJECT_3.color1}
-                color2={PROJECT_3.color2}
-                githubHref={PROJECT_3.githubHref}
-                />
-
-            <ProjectCard
-                imageSrc={PROJECT_4.photoPng}
-                imageAlt={PROJECT_4.title}
-                title={PROJECT_4.title}
-                subtitle={PROJECT_4.subtitle}
-                stack={PROJECT_4.stack}
-                description={PROJECT_4.description}
-                href={PROJECT_4.href}
-                color1={PROJECT_4.color1}
-                color2={PROJECT_4.color2}
-                githubHref={PROJECT_4.githubHref}
-                />
-
-            <ProjectCard
-                imageSrc={PROJECT_5.photoPng}
-                imageAlt={PROJECT_5.title}
-                title={PROJECT_5.title}
-                subtitle={PROJECT_5.subtitle}
-                stack={PROJECT_5.stack}
-                description={PROJECT_5.description}
-                href={PROJECT_5.href}
-                color1={PROJECT_5.color1}
-                color2={PROJECT_5.color2}
-                githubHref={PROJECT_5.githubHref}
-            />
-
-            <ProjectCard
-                imageSrc={PROJECT_6.photoPng}
-                imageAlt={PROJECT_6.title}
-                title={PROJECT_6.title}
-                subtitle={PROJECT_6.subtitle}
-                stack={PROJECT_6.stack}
-                description={PROJECT_6.description}
-                href={PROJECT_6.href}
-                color1={PROJECT_6.color1}
-                color2={PROJECT_6.color2}
-                deployedHref={PROJECT_6.deployedHref}
-            />
-
-            <ProjectCard
-                imageSrc={PROJECT_7.photoPng}
-                imageAlt={PROJECT_7.title}
-                title={PROJECT_7.title}
-                subtitle={PROJECT_7.subtitle}
-                stack={PROJECT_7.stack}
-                description={PROJECT_7.description}
-                href={PROJECT_7.href}
-                color1={PROJECT_7.color1}
-                color2={PROJECT_7.color2}
-                deployedHref={PROJECT_7.deployedHref}
-            />
-                */}
         </main>
     );
 };

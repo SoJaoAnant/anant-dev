@@ -11,8 +11,8 @@ export default function SubStack({
     stack,
 }: SubStackProps) {
   return (
-    <article className="group relative flex w-full max-w-5xl gap-6 rounded-2xl border border-white/10 bg-linear-to-b from-white/6 to-white/2 py-10 px-5 backdrop-blur-sm">
-      <div className="w-[40vw] flex flex-col items-start">
+    <article className="group relative flex w-full gap-6 rounded-2xl border border-white/10 bg-linear-to-b from-white/6 to-white/2 py-10 px-5 backdrop-blur-sm">
+      <div className="w-full flex flex-col items-start">
         <h1 className="text-3xl font-semibold text-white tracking-wide">
           {stack_name}
         </h1>
@@ -21,7 +21,7 @@ export default function SubStack({
           {stack.map((s) => (
             <span
               key={s}
-              className="rounded-full border border-white/10 bg-[#1c1c1c] px-3 py-1 mx-2 text-base tracking-wide text-white/70 hover:scale-[1.1] transition"
+              className="rounded-full border border-white/10 bg-[#1c1c1c] px-3 py-1 text-sm sm:text-sm tracking-wide text-white/70 hover:scale-[1.1] transition text-center"
             >
               {s}
             </span>
@@ -32,3 +32,4 @@ export default function SubStack({
   );
 }
 
+// 416 is my mobile's width

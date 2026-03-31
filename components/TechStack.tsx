@@ -99,7 +99,7 @@ export const TechStack = () => {
         ];
 
   return (
-    <main className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 px-25 pb-10 mt-10">
+    <main className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 px-10 md:px-15 lg:px-25 pb-10 mt-10">
 
         <SubStack
             stack_name={'Machine Learning'}

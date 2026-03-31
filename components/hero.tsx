@@ -25,7 +25,7 @@ export default function Hero() {
           flex-direction: column;
           align-items: center;
           justify-content: flex-start;
-          min-height: 90vh;
+          min-height: auto;
           margin-top: 40px;
           gap: 0;
           text-align: center;
