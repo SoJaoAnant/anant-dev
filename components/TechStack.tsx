@@ -34,7 +34,7 @@ export const TechStack = () => {
             stack: ["Python", "C++", "C", "C#", "Java", "TypeScript", "JavaScript"]
         },
     ]
-
+    
     return (
         <main className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 px-10 md:px-15 lg:px-25 pb-10 mt-10">
             {STACKS.map((project, index) => (
