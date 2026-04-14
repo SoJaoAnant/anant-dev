@@ -18,6 +18,12 @@ export const BlogSection = () => {
             read_time={"A 15 minute read"}
             href={"/blogs/Donut_spin"}
         />
+        
+        <Blog
+            blog_name={'What are Diffusion Models?'}
+            read_time={"A 15 minute read"}
+            href={"/blogs/ddpm"}
+        />
 
     </main>
   );
