@@ -1,5 +1,3 @@
-#cs_tek #fun_topics 
-
 Diffusion models are one of the most widely known generative deep learning models for image generation.
 It learns to create realistic images from learned denoising processes.
 Many different types of diffusion models have been made, ones which can generate an image based on a prompt or the one which can mix two images together with a certain art style, but right now the one model in my scope is the foundational unconditional denoising diffusion model.
@@ -51,4 +49,4 @@ The results came out pretty nice, the model has learned the basic pixel art styl
 
 in the meantime, look at this dope training loop over a 100 epochs
 
-![my image](/blogs/ddpm_result_timelapse.png)
+![my image](/blogs/ddpm_result_timelapse.gif)

@@ -6,19 +6,6 @@ export const ProjectSection = () => {
 
     const PROJECTS = [
         {
-            photoPng: "/projects/contextvault/ContextVault.png",
-            title: "ContextVault",
-            subtitle: "A RAG based AI document assistant",
-            stack: ["Python", "JavaScript", "TypeScript", "LangChain", "FastAPI", "Next.js", "Tailwind", "ChromaDB", "Gemini (Embedding-001)"],
-            description:
-                "The system processes PDFs, DOCX, and TXT files by chunking and embedding their content into a vector database, enabling retrieval and querying. The RAG pipeline retrieves relevant chunks for a query before generating answers. The architecture integrates scalable API endpoints, embedding pipelines, and real-time document preview to deliver an efficient AI assisted document exploration experience.",
-            href: "/projects/contextvault",
-            color1: "#b260fc",
-            color2: "#111827",
-            githubHref: "https://github.com/SoJaoAnant/ContextVault",
-            deployedHref: "https://context-vault-sigma.vercel.app/",
-        },
-        {
             photoPng: "/projects/imagegenlab/flower_result.png",
             title: "Image Generation Lab",
             subtitle: "Image generation models : AutoEncoders, GANs, Diffusion Models",
@@ -29,18 +16,6 @@ export const ProjectSection = () => {
             color1: "#fff836",
             color2: "#599c16",
             githubHref: "https://github.com/SoJaoAnant/image-generation-lab",
-        },
-        {
-            photoPng: "/projects/makemoore/rnn.png",
-            title: "MakeMooreAI",
-            subtitle: "RNN model for character level name generation",
-            stack: ["Python", "Pytorch", "NLTK", "Spacy", "Pandas", "Numpy"],
-            description:
-                "An AI model that generates more data like its input, which in this context, are names of people. By training on the input names, it can generate new names using Models like RNN, LSTM and GRU.",
-            href: "/projects/makemoore",
-            color1: "#2d55f7",
-            color2: "#01197a",
-            githubHref: "https://github.com/SoJaoAnant/Character-level-name-generator",
         },
         {
             photoPng: "/projects/enhimodel/enhi_ai.png",
@@ -54,6 +29,32 @@ export const ProjectSection = () => {
             color2: "#8c0863",
             githubHref: "https://github.com/SoJaoAnant/English-to-Hindi-translation-model-using-Seq2Seq-architecture",
         },
+        {
+            photoPng: "/projects/contextvault/ContextVault.png",
+            title: "ContextVault",
+            subtitle: "A RAG based AI document assistant",
+            stack: ["Python", "JavaScript", "TypeScript", "LangChain", "FastAPI", "Next.js", "Tailwind", "ChromaDB", "Gemini (Embedding-001)"],
+            description:
+                "The system processes PDFs, DOCX, and TXT files by chunking and embedding their content into a vector database, enabling retrieval and querying. The RAG pipeline retrieves relevant chunks for a query before generating answers. The architecture integrates scalable API endpoints, embedding pipelines, and real-time document preview to deliver an efficient AI assisted document exploration experience.",
+            href: "/projects/contextvault",
+            color1: "#b260fc",
+            color2: "#111827",
+            githubHref: "https://github.com/SoJaoAnant/ContextVault",
+            deployedHref: "https://context-vault-sigma.vercel.app/",
+        },
+        {
+            photoPng: "/projects/makemoore/rnn.png",
+            title: "MakeMooreAI",
+            subtitle: "RNN model for character level name generation",
+            stack: ["Python", "Pytorch", "NLTK", "Spacy", "Pandas", "Numpy"],
+            description:
+                "An AI model that generates more data like its input, which in this context, are names of people. By training on the input names, it can generate new names using Models like RNN, LSTM and GRU.",
+            href: "/projects/makemoore",
+            color1: "#2d55f7",
+            color2: "#01197a",
+            githubHref: "https://github.com/SoJaoAnant/Character-level-name-generator",
+        },
+
         {
             photoPng: "/projects/vessel/hallowseal.png",
             title: "Vessel",
