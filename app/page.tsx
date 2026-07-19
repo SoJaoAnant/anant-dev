@@ -11,6 +11,7 @@ import { Connect } from "@/components/connect";
 import { TechStack } from "@/components/TechStack";
 import { BlogSection } from "@/components/BlogSection";
 import { ProjectSection } from "@/components/ProjectSection";
+import { ExperienceSection } from "@/components/ExperienceSection";
 
 export default function Home() {
   const [isLight, setIsLight] = useState(false);
@@ -20,6 +21,14 @@ export default function Home() {
     <GridBackground3>
       <MusicPlayer/>
       <Hero/>
+
+      <Break />
+      <div className="flex pl-10 sm:pl-18 md:pl-25">
+        <h1 className="text-[clamp(30px,3vw,58px)] font-bold text-White tracking-[0.04em] leading-[1.1] ">Experience</h1>
+      </div>
+      <Break />
+
+      <ExperienceSection />
 
       <Break />
       <div className="flex pl-10 sm:pl-18 md:pl-25">
